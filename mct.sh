@@ -257,6 +257,7 @@ fi
 
 
 function menu (){
+clear
 echo -e $lightgreen"$intro"
 echo -e $BlueF"       Media Converter Tools"
 echo -e $white" Script   : $red"IqbalFAF""
@@ -293,7 +294,7 @@ fi
 }
 
 ####### KORE MENU #########
-
+clear
 sleep 1
 echo -e $lightgreen"$intro"
 echo -e $BlueF"       Media Converter Termux"
