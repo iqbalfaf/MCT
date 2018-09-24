@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 log=$HOME/mct-update.log
+apt install inetutils
 echo " Updating Script... " >> $log 2>&1
 sleep 1
 echo " Update Repo... " >> $log 2>$1
