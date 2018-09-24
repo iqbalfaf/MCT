@@ -14,12 +14,14 @@ BlueF='\e[1;34m'
 
 ##### nani kore ? #####
 cvta='ffmpeg'
-versi='1.0'
+versi='1.1'
 
 ##### kore figlet #####
 intro=$(figlet MCT)
 convideo=$(figlet Converter Video)
 conmp3=$(figlet Converter Mp3)
+batchmp33=$(figlet Batch Mp3)
+
 
 
 
@@ -252,20 +254,121 @@ elif  test $convermp3 == '4'
 fi
 }
 
+function batchmp3(){
+		echo -e $cyan"$batchmp33"
+	echo""
+	echo -e $lightgreen"============================================="
+echo -e $white" [$okegreen"01"$white]$okegreen WAV To Mp3"
+echo -e $white" [$okegreen"02"$white]$okegreen wav to Mp3"
+echo -e $white" [$okegreen"03"$white]$okegreen ogg to Mp3"
+echo -e $white" [$okegreen"04"$white]$okegreen flac to Mp3"
+echo -e $white" [$okegreen"x"$white]$okegreen Kembali Ke Menu"
+echo -e $okegreen" ┌─["$red"IqbalFAF$okegreen]──[$red~$okegreen]─["$yellow"Batch-MP3$okegreen]:"	
+    echo -ne $okegreen" └─────► " ;tput sgr0    
+    read batmp3
+
+if test $batmp3 == '1'
+	then
+	clear 
+
+    read -p "Di Mana File Nya : " mp3dir
+    for i in $mp3dir; do
+    echo -e $okegreen"Lagi Di Proses";
+    ffmpeg -i "$i/*.WAV" -vn -ab 128k -ar 44100 -y "${i%.*}.mp3"
+	done
+
+	sleep 1
+	echo " Batch Convert MP3 $mp3dir Selesai "
+	sleep 1 
+	echo " Kembali Ke Batch MP3 "
+	sleep 2
+	clear
+	batchmp3
+
+
+elif test $batmp3 == '2'
+	then
+	clear
+
+read -p "Di Mana File Nya : " mp3dir
+    for i in $mp3dir; do
+    echo -e $okegreen"Lagi Di Proses";
+    ffmpeg -i "$i/*.wav" -vn -ab 128k -ar 44100 -y "${i%.*}.mp3"
+	done
+
+	sleep 1
+	echo " Batch Convert MP3 $mp3dir Selesai "
+	sleep 1 
+	echo " Kembali Ke Batch MP3 "
+	sleep 2
+	clear
+	batchmp3
+
+elif test $batmp3 == '3'
+	then
+	clear
+
+	read -p "Di Mana File Nya : " mp3dir
+    for i in $mp3dir; do
+    echo -e $okegreen"Lagi Di Proses";
+    ffmpeg -i "$i/*.ogg" -vn -ab 128k -ar 44100 -y "${i%.*}.mp3"
+	done
+
+	sleep 1
+	echo " Batch Convert MP3 $mp3dir Selesai "
+	sleep 1 
+	echo " Kembali Ke Batch MP3 "
+	sleep 2
+	clear
+	batchmp3
+
+elif test $batmp3 == '4'
+	then
+	clear
+
+	read -p "Di Mana File Nya : " mp3dir
+    for i in $mp3dir; do
+    echo -e $okegreen"Lagi Di Proses";
+    ffmpeg -i "$i/*.flac" -vn -ab 128k -ar 44100 -y "${i%.*}.mp3"
+	done
+
+	sleep 1
+	echo " Batch Convert MP3 $mp3dir Selesai "
+	sleep 1 
+	echo " Kembali Ke Batch MP3 "
+	sleep 2
+	clear
+	batchmp3
+
+elif test $batmp3 == 'x'
+	then
+	clear
+	menu
+
+else 
+	echo " Lu Ngetik Apaan  Coba ?"
+	echo " Ulangi Lagi "
+	sleep 1
+	clear
+	batchmp3
+fi
+
+}
+
 
 ####### KORE MENU #########
 
 
 function menu (){
-clear
 echo -e $lightgreen"$intro"
 echo -e $BlueF"       Media Converter Tools"
 echo -e $white" Script   : $red"IqbalFAF""
 echo -e $white" Version  : $red"$versi""
 echo""
 echo -e $lightgreen"============================================="
-echo -e $white" [$red"01"$white]$cyan converter video"
-echo -e $white" [$red"02"$white]$cyan converter mp3"
+echo -e $white" [$red"01"$white]$cyan Converter Video"
+echo -e $white" [$red"02"$white]$cyan Converter Mp3"
+echo -e $white" [$red"03"$white]$cyan Batch Convert Mp3" 
 echo -e $white" [$red"x"$white]$cyan Keluar"
 echo -e $okegreen" ┌─["$red"IqbalFAF$okegreen]──[$red~$okegreen]─["$yellow"menu$okegreen]:"	
 echo -ne $okegreen" └─────► " ;tput sgr0
@@ -279,6 +382,10 @@ elif test $kimochi == '2'
 	then 
 	clear
 	convertermp3
+elif test $kimochi == '3'
+	then
+	clear
+	batchmp3
 elif test $kimochi == 'x'
 	then
 	sleep 1 
@@ -294,7 +401,7 @@ fi
 }
 
 ####### KORE MENU #########
-clear
+
 sleep 1
 echo -e $lightgreen"$intro"
 echo -e $BlueF"       Media Converter Termux"
@@ -302,8 +409,9 @@ echo -e $white" Script   : $red"IqbalFAF""
 echo -e $white" Version  : $red"$versi""
 echo""
 echo -e $lightgreen"============================================="
-echo -e $white" [$red"01"$white]$cyan converter video"
-echo -e $white" [$red"02"$white]$cyan converter mp3"
+echo -e $white" [$red"01"$white]$cyan Converter Video"
+echo -e $white" [$red"02"$white]$cyan Converter Mp3"
+echo -e $white" [$red"03"$white]$cyan Batch Convert Mp3" 
 echo -e $white" [$red"x"$white]$cyan Keluar"
 echo -e $okegreen" ┌─["$red"IqbalFAF$okegreen]──[$red~$okegreen]─["$yellow"menu$okegreen]:"	
 echo -ne $okegreen" └─────► " ;tput sgr0
@@ -317,6 +425,10 @@ elif test $kimochi == '2'
 	then 
 	clear
 	convertermp3
+elif test $kimochi == '3'
+	then
+	clear
+	batchmp3
 elif test $kimochi == 'x'
 	then
 	sleep 1 
@@ -324,7 +436,7 @@ elif test $kimochi == 'x'
 	read -p "Mau keluar ?" 
 	exit
 else
-	echo "Lu Ngetik Apaan Coba ?"
-	sleep 1
+	echo "Nomor Nya Nggak Ada Di Menu"
+	sleep 3
 	menu
 fi
