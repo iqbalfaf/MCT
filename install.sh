@@ -4,33 +4,33 @@ echo "Installer MCT"
 sleep 1
 clear
 echo "Update Repo"
-apt update 
+apt update > /dev/null 2>&1
 sleep 1
 clear
 echo "Update Repo Selesai"
 sleep 1
 clear
 echo "Installing Figlet"
-apt install figlet -y
+apt install figlet -y > /dev/null 2>&1
 sleep 1 
 clear
 echo "Install Figlet Selesai"
 sleep 1
 clear
 echo "Installing ncurses-utils"
-apt install ncurses-utils -y
+apt install ncurses-utils -y > /dev/null 2>&1
 sleep 1
 clear
 echo "Installing ffmpeg"
 sleep 1
-apt install ffmpeg -y
+apt install ffmpeg -y > /dev/null 2>&1
 sleep 1
 clear
 echo "Install ffmpeg Selesai"
 sleep 1
 clear
 echo "Install Script MCT"
-git clone https://github.com/iqbalfaf/MCT.git
+git clone https://github.com/iqbalfaf/MCT.git > /dev/null 2>&1
 cd
 cd MCT/
 mv mct.sh mct
