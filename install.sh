@@ -43,7 +43,7 @@ sleep 1
 clear
 echo "================== MCT ================== "
 echo "MEDIA CONVERTER TOOLS"
-echo "Version : 1.0"
+echo "Version : 1.2"
 echo ""
 echo "Untuk Menjalankan Tools nya cukup ketikan"
 echo "mct"
