@@ -405,7 +405,7 @@ echo "                                                        ";
 
 
 function menu (){
-echo -e okegreen"                                   ";
+echo -e $okegreen"                                   ";
 echo " _|      _|    _|_|_|  _|_|_|_|_|  ";
 echo " _|_|  _|_|  _|            _|      ";
 echo " _|  _|  _|  _|            _|      ";
@@ -456,7 +456,7 @@ fi
 
 sleep 1
 clear
-echo -e okegreen"                                   ";
+echo -e $okegreen"                                   ";
 echo " _|      _|    _|_|_|  _|_|_|_|_|  ";
 echo " _|_|  _|_|  _|            _|      ";
 echo " _|  _|  _|  _|            _|      ";
