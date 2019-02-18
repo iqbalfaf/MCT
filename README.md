@@ -2,7 +2,7 @@
 <h1> Media Converter Termux </h1>
 Tools sederhana menggunakan ffmpeg 
 <br>
-![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/2.png)
+![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/2.png)<br>
 
 <h2>Tutor Install</h2>
 apt update <br>
