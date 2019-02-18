@@ -12,7 +12,7 @@ BlueF='\e[1;34m'
 
 version=1.3
 source "$(pwd)/spinner.sh"
-
+clear
 echo -e okegreen"                                   ";
 echo " _|      _|    _|_|_|  _|_|_|_|_|  ";
 echo " _|_|  _|_|  _|            _|      ";
