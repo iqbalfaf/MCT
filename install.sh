@@ -40,13 +40,14 @@ stop_spinner $?
 start_spinner 'Cloning Script MCT'
 git clone https://github.com/iqbalfaf/MCT.git > /dev/null 2>&1
 stop_spinner $?
+start_spinner 'Setting Up MCT'
 cd
 cd MCT/
 mv mct.sh mct
 mv mct $PREFIX/bin/
 chmod +x $PREFIX/bin/mct
+stop_spinner $?
 sleep 1
-clear
 echo "Install Script MCT Selesai"
 sleep 1
 clear
@@ -58,4 +59,6 @@ echo "Untuk Menjalankan Tools nya cukup ketikan"
 echo "mct"
 echo "Terimakasih ^_^"
 echo "================== MCT ================== "
+cp spinner.sh $PREFIX/bin
 cd
+rm -rf MCT
