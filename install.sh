@@ -13,7 +13,7 @@ BlueF='\e[1;34m'
 version=1.3
 source "$(pwd)/spinner.sh"
 clear
-echo -e $cyan"                                   ";
+echo -e $okgreen"                                   ";
 echo " _|      _|    _|_|_|  _|_|_|_|_|  ";
 echo " _|_|  _|_|  _|            _|      ";
 echo " _|  _|  _|  _|            _|      ";
@@ -22,7 +22,7 @@ echo " _|      _|    _|_|_|      _|    Installer  ";
 echo "                               V$version    ";
 echo "     Media Converter Termux        ";
 echo "          IqbalFAF "
-
+echo -e $white""
 chmod +x spinner.sh
 
 start_spinner 'Updating Repo'
