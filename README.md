@@ -1,9 +1,10 @@
 # MCT
-<h1> Media Converter Termux <h1>
-Tools sederhana menggunakan ffmpeg
+<h1> Media Converter Termux </h1>
+Tools sederhana menggunakan ffmpeg 
+<br>
 ![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/2.png)
 
-Tutor Install
+<h2>Tutor Install</h2>
 apt update <br>
 apt install git <br>
 git clone https://github.com/iqbalfaf/MCT <br>
