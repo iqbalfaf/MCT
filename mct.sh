@@ -17,7 +17,7 @@ cvta='ffmpeg'
 versi='1.3'
 
 
-source="/data/data/com.termux/files/usr/bin/spinner.sh"
+source "/data/data/com.termux/files/usr/bin/spinner.sh"
 
 
 function convertervideo (){
