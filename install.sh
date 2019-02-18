@@ -12,7 +12,6 @@ BlueF='\e[1;34m'
 
 version=1.3
 
-dirbin=/data/data/com.termux/files/usr/bin
 
 echo -e okegreen"                                   ";
 echo " _|      _|    _|_|_|  _|_|_|_|_|  ";
@@ -24,16 +23,8 @@ echo "                               V$version    ";
 echo "     Media Converter Termux        ";
 echo "          IqbalFAF "
 
-
-### Cek lib
-echo "Cek Lib..."
-if [[ -x $dirbin/slib.sh ]]; then
-echo ""
-else
-	wget -o $dirbin/slib.sh https://raw.githubusercontent.com/iqbalfaf/MCT/master/slib.sh
-	chmod +x $dirbin/slib.sh
-	. ./dirbin/slib.sh
-fi
+chmod +x slib.sh
+. ./slib.sh
 
 run_ok "apt update" "Updating Repo"
 run_ok "apt install ncurses-utils -y" "Install Ncurses"
