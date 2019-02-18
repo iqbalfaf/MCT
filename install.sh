@@ -1,28 +1,44 @@
-#!/usr/bin/env bash
-clear
-echo "Installer MCT"
-sleep 1
-echo "Update Repo..."
-apt update > /dev/null 2>&1
-sleep 1
-echo "Update Repo Selesai"
-sleep 1
-echo "Installing Figlet..."
-apt install figlet -y > /dev/null 2>&1
-sleep 1 
-echo "Install Figlet Selesai"
-sleep 1
-echo "Installing ncurses-utils..."
-apt install ncurses-utils -y > /dev/null 2>&1
-sleep 1
-echo "Installing ffmpeg..."
-sleep 1
-apt install ffmpeg -y > /dev/null 2>&1
-sleep 1
-echo "Install ffmpeg Selesai"
-sleep 1
-echo "Install Script MCT..."
-git clone https://github.com/iqbalfaf/MCT.git > /dev/null 2>&1
+#!/bin/bash
+
+#### Warna ####
+cyan='\e[0;36m'
+green='\e[0;34m'
+okegreen='\033[92m'
+lightgreen='\e[1;32m'
+white='\e[1;37m'
+red='\e[1;31m'
+yellow='\e[1;33m'
+BlueF='\e[1;34m'
+
+version=1.3
+
+
+echo -e okegreen"                                   ";
+echo " _|      _|    _|_|_|  _|_|_|_|_|  ";
+echo " _|_|  _|_|  _|            _|      ";
+echo " _|  _|  _|  _|            _|      ";
+echo " _|      _|  _|            _|      ";
+echo " _|      _|    _|_|_|      _|    Installer  ";
+echo "                               V$version    ";
+echo "     Media Converter Termux        ";
+echo "          IqbalFAF "
+
+
+### Cek lib
+echo "Cek Lib..."
+if [[ -x $PREFIX/bin/slib.sh ]]; then
+echo ""
+else
+	wget -o $PREFIX/bin/slib.sh https://raw.githubusercontent.com/iqbalfaf/MCT/master/slib.sh
+	chmod +x $PREFIX/bin/slib.sh
+	. ./$PREFIX/bin/slib.sh
+fi
+
+run_ok "apt update" "Updating Repo"
+run_ok "apt install ncurses-utils -y" "Install Ncurses"
+run_ok "apt install ffmpeg -y" "Install ffmpeg"
+run_ok "apt install git -y" "Install Git"
+run_ok "git clone https://github.com/iqbalfaf/MCT.git" "Cloning Script MCT"
 cd
 cd MCT/
 mv mct.sh mct
@@ -35,11 +51,10 @@ sleep 1
 clear
 echo "================== MCT ================== "
 echo "MEDIA CONVERTER TOOLS"
-echo "Version : 1.2"
+echo "Version : 1.3"
 echo ""
 echo "Untuk Menjalankan Tools nya cukup ketikan"
 echo "mct"
 echo "Terimakasih ^_^"
 echo "================== MCT ================== "
 cd
-rm -rf MCT/
