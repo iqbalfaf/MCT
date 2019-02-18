@@ -1,20 +1,20 @@
 # MCT
-Media Converter Termux
+<h1> Media Converter Termux <h1>
 Tools sederhana menggunakan ffmpeg
 ![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/2.png)
 
 Tutor Install
-apt update
-apt install git
-git clone https://github.com/iqbalfaf/MCT
-cd MCT/
-chmod +x install.sh
-./install.sh
+apt update <br>
+apt install git <br>
+git clone https://github.com/iqbalfaf/MCT <br>
+cd MCT/ <br>
+chmod +x install.sh <br>
+./install.sh <br>
 
-![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/1.png)
-![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/2.png)
-![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/3.png)
-![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/4.png)
-![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/5.png)
+![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/1.png)<br>
+![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/2.png)<br>
+![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/3.png)<br>
+![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/4.png)<br>
+![alt MCT](https://raw.githubusercontent.com/iqbalfaf/MCT/master/5.png)<br>
 
 BLOG : http://www.iqbalfaf.com or http://iqbalfaf.blogspot.com
