@@ -12,6 +12,7 @@ BlueF='\e[1;34m'
 
 version=1.3
 
+dirbin=/data/data/com.termux/files/usr/bin
 
 echo -e okegreen"                                   ";
 echo " _|      _|    _|_|_|  _|_|_|_|_|  ";
@@ -26,12 +27,12 @@ echo "          IqbalFAF "
 
 ### Cek lib
 echo "Cek Lib..."
-if [[ -x $PREFIX/bin/slib.sh ]]; then
+if [[ -x $dirbin/slib.sh ]]; then
 echo ""
 else
-	wget -o $PREFIX/bin/slib.sh https://raw.githubusercontent.com/iqbalfaf/MCT/master/slib.sh
-	chmod +x $PREFIX/bin/slib.sh
-	. ./$PREFIX/bin/slib.sh
+	wget -o $dirbin/slib.sh https://raw.githubusercontent.com/iqbalfaf/MCT/master/slib.sh
+	chmod +x $dirbin/slib.sh
+	. ./dirbin/slib.sh
 fi
 
 run_ok "apt update" "Updating Repo"
@@ -42,8 +43,8 @@ run_ok "git clone https://github.com/iqbalfaf/MCT.git" "Cloning Script MCT"
 cd
 cd MCT/
 mv mct.sh mct
-mv mct $PREFIX/bin/
-chmod +x $PREFIX/bin/mct
+mv mct $dirbin/
+chmod +x $dirbin/mct
 sleep 1
 clear
 echo "Install Script MCT Selesai"
