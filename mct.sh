@@ -481,7 +481,7 @@ echo ""
 if test $kimochi == '1'
 	then
 	clear
-	converte rvideo
+	convertervideo
 elif test $kimochi == '2'
 	then 
 	clear
