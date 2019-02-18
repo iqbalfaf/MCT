@@ -14,13 +14,10 @@ BlueF='\e[1;34m'
 
 ##### nani kore ? #####
 cvta='ffmpeg'
-versi='1.2'
+versi='1.3'
 
-##### kore figlet #####
-intro=$(figlet MCT)
-batchmp33=$(figlet Batch Mp3)
 
-source="$PREFIX/bin/spinner.sh"
+source="/data/data/com.termux/files/usr/bin/spinner.sh"
 
 
 function convertervideo (){
@@ -167,6 +164,7 @@ echo "                                         ";
 	echo -e $white" [$red"03"$white]$cyan Convert AVI Ke MP3"
 	echo -e $white" [$red"04"$white]$cyan Convert WEBM ke MP3"
 	echo -e $white" [$red"05"$white]$cyan Convert FLV ke MP3"
+	echo -e $white" [$red"06"$white]$cyan Convert M4A ke MP3"
 	echo -e $white" [$red"x"$white]$cyan Kembali Ke Menu"
 	echo -e $okegreen" ┌─["$red"IqbalFAF$okegreen]──[$red~$okegreen]─["$yellow"converter-mp3$okegreen]:"	
     echo -ne $okegreen" └─────► " ;tput sgr0  
@@ -255,6 +253,22 @@ echo "                                         ";
     echo "Convert selesai lokasi file nya ${i%.*}.mp3"
 	done
 
+	sleep 1
+	read -p "Tekan ENTER Untuk Kembali Ke Converter MP3 "
+	sleep 1
+	clear
+	convertermp3
+
+	elif  test $convermp3 == '6'
+    then  
+    read -p "Di Mana File Nya : " conmp3
+    for i in $conmp3; do
+    
+    start_spinner 'Proses Convert Sedang Berjalan....'
+    ffmpeg -i "$i"  -vn -ab 128k -ar 44100 -y "${i%.*}.mp3" > /dev/null 2>&1
+    stop_spinner $?
+    echo "Convert selesai lokasi file nya ${i%.*}.mp3"
+	done
 	sleep 1
 	read -p "Tekan ENTER Untuk Kembali Ke Converter MP3 "
 	sleep 1
