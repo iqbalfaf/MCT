@@ -50,7 +50,6 @@ stop_spinner $?
 sleep 1
 echo "Install Script MCT Selesai"
 sleep 1
-clear
 echo "================== MCT ================== "
 echo "MEDIA CONVERTER TOOLS"
 echo "Version : 1.3"
