@@ -18,15 +18,18 @@ versi='1.2'
 
 ##### kore figlet #####
 intro=$(figlet MCT)
-convideo=$(figlet Converter Video)
-conmp3=$(figlet Converter Mp3)
 batchmp33=$(figlet Batch Mp3)
 
-
+source="$PREFIX/bin/spinner.sh"
 
 
 function convertervideo (){
-	echo -e $cyan"$convideo"
+	
+echo -e $cyan"  __  __  ___ _____  __   _____ ___  ___ ___  ";
+echo " |  \/  |/ __|_   _|_\ \ / /_ _|   \| __/ _ \ ";
+echo " | |\/| | (__  | ||___\ V / | || |) | _| (_) |";
+echo " |_|  |_|\___| |_|     \_/ |___|___/|___\___/ ";
+echo "                                              ";
 	echo""
 	echo -e $lightgreen"============================================="
 echo -e $white" [$okegreen"01"$white]$okegreen Convert Video Ke Audio"
@@ -45,8 +48,8 @@ read videcon
 	sleep 1
 	read -p "Dimana File Nya :" filevidcon
 	for i in $filevidcon; do
-	echo -e $okegreen"Lagi Di Proses";
-    echo -ne 'Proses Convert Sedang Berjalan.... \r'
+	
+    start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i" -b:a 192K -vn "${i%.*}.mp3" > /dev/null 2>&1
     echo  -ne "\ec"
     echo "Convert selesai lokasi file nya ${i%.*}.mp3"
@@ -67,8 +70,8 @@ read videcon
 	sleep 1
 	read -p "Dimana File Nya :" filevidcon
 	for i in $filevidcon; do
-	echo -e $okegreen"Lagi Di Proses";
-	echo -ne 'Proses Convert Sedang Berjalan.... \r'
+	
+	start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i" -codec copy "${i%.*}.mp4" > /dev/null 2>&1
     echo  -ne "\ec"
     echo "Convert selesai lokasi file nya ${i%.*}.mp4"
@@ -86,8 +89,8 @@ read videcon
 	echo "Converter Video AVI Ke MP4"
 	read -p "Dimana File Nya :" filevidcon
 	for i in $filevidcon; do
-	echo -e $okegreen"Lagi Di Proses";
-	echo -ne 'Proses Convert Sedang Berjalan.... \r'
+	
+	start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i" -c:a aac -b:a 128k -c:v libx264 -crf 23 "${i%.*}.mp4" > /dev/null 2>&1
     echo  -ne "\ec"
     echo "Convert selesai lokasi file nya ${i%.*}.mp4"
@@ -104,8 +107,8 @@ read videcon
 	echo "Converter WEBM Ke MP4"
 	read -p "Dimana File Nya :" filevidcon
 	for i in $filevidcon; do
-	echo -e $okegreen"Lagi Di Proses";
-	echo -ne 'Proses Convert Sedang Berjalan.... \r'
+	
+	start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i" -c:v copy "${i%.*}.mp4"  > /dev/null 2>&1
     echo  -ne "\ec"
     echo "Convert selesai lokasi file nya ${i%.*}.mp4"
@@ -122,8 +125,8 @@ read videcon
 	echo "Converter FLV Ke MP4"
 	read -p "Dimana File Nya :" filevidcon
 	for i in $filevidcon; do
-	echo -e $okegreen"Lagi Di Proses";
-	echo -ne 'Proses Convert Sedang Berjalan.... \r'
+	
+	start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i" -vcodec copy "${i%.*}.mp4" > /dev/null 2>&1
     echo  -ne "\ec"
     echo "Convert selesai lokasi file nya ${i%.*}.mp4"
@@ -151,7 +154,12 @@ read videcon
 	}
 
 	function convertermp3 (){
-	echo -e $BlueF"$conmp3"
+
+echo -e $BlueF"   __  ______________    __  ______  ____";
+echo "  /  |/  / ___/_  __/___/  |/  / _ \|_  /";
+echo " / /|_/ / /__  / / /___/ /|_/ / ___//_ < ";
+echo "/_/  /_/\___/ /_/     /_/  /_/_/  /____/ ";
+echo "                                         ";
 	echo""
 	echo -e $lightgreen"============================================="
 	echo -e $white" [$red"01"$white]$cyan Convert MP4 Ke MP3"
@@ -168,10 +176,9 @@ read videcon
     then 
     read -p "Di Mana File Nya : " conmp3
     for i in $conmp3; do
-    echo -e $okegreen"Lagi Di Proses";
-    echo -ne 'Proses Convert Sedang Berjalan.... \r'
+    start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i" -b:a 192K "${i%.*}.mp3" > /dev/null 2>&1
-    echo -ne "\ec"
+    stop_spinner $?
     echo "Convert selesai lokasi file nya ${i%.*}.mp3"
 	done
 
@@ -187,10 +194,10 @@ read videcon
 
     read -p "Di Mana File Nya : " conmp3
     for i in $conmp3; do
-    echo -e $okegreen"Lagi Di Proses";
-    echo -ne 'Proses Convert Sedang Berjalan.... \r'
+    
+    start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i" -vn -c:a libmp3lame -y "${i%.*}.mp3" > /dev/null 2>&1
-    echo -ne "\ec"
+    stop_spinner $?
     echo "Convert selesai lokasi file nya ${i%.*}.mp3"
 	done
 
@@ -206,10 +213,10 @@ read videcon
 
     read -p "Di Mana File Nya : " conmp3
     for i in $conmp3; do
-    echo -e $okegreen"Lagi Di Proses";
-    echo -ne 'Proses Convert Sedang Berjalan.... \r'
+    
+    start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i" -vn -ab 128k -ar 44100 -y "${i%.*}.mp3" > /dev/null 2>&1
-    echo -ne "\ec"
+    stop_spinner $?
     echo "Convert selesai lokasi file nya ${i%.*}.mp3"
 	done
 
@@ -224,10 +231,10 @@ read videcon
     then  
     read -p "Di Mana File Nya : " conmp3
     for i in $conmp3; do
-    echo -e $okegreen"Lagi Di Proses";
-    echo -ne 'Proses Convert Sedang Berjalan.... \r'
+    
+    start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i"  -vn -ab 128k -ar 44100 -y "${i%.*}.mp3" > /dev/null 2>&1
-    echo -ne "\ec"
+    stop_spinner $?
     echo "Convert selesai lokasi file nya ${i%.*}.mp3"
 	done
 	sleep 1
@@ -241,10 +248,10 @@ read videcon
 
     read -p "Di Mana File Nya : " conmp3
     for i in $conmp3; do
-    echo -e $okegreen"Lagi Di Proses";
-    echo -ne 'Proses Convert Sedang Berjalan.... \r'
+    
+    start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i" -vn -ab 128k -ar 44100 -y "${i%.*}.mp3" > /dev/null 2>&1
-    echo -ne "\ec"
+    stop_spinner $?
     echo "Convert selesai lokasi file nya ${i%.*}.mp3"
 	done
 
@@ -269,7 +276,13 @@ read videcon
 	}
 
 	function batchmp3(){
-	echo -e $cyan"$batchmp33"
+
+echo -e $cyan"    __  _______________    ____  ___  ______________  __";
+echo "   /  |/  / ____/_  __/   / __ )/   |/_  __/ ____/ / / /";
+echo "  / /|_/ / /     / /_____/ __  / /| | / / / /   / /_/ / ";
+echo " / /  / / /___  / /_____/ /_/ / ___ |/ / / /___/ __  /  ";
+echo "/_/  /_/\____/ /_/     /_____/_/  |_/_/  \____/_/ /_/   ";
+echo "                                                        ";
 	echo""
 	echo -e $lightgreen"============================================="
 	echo -e $white" [$okegreen"01"$white]$okegreen WAV To Mp3"
@@ -287,10 +300,10 @@ read videcon
 
     read -p "Di Mana File Nya : " mp3dir
     for i in $mp3dir; do
-    echo -e $okegreen"Lagi Di Proses";
-    echo -ne 'Proses Convert Sedang Berjalan.... \r'
+    
+    start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i/*.WAV" -vn -ab 128k -ar 44100 -y "${i%.*}.mp3" > /dev/null 2>&1
-    echo -ne "\ec"
+    stop_spinner $?
     echo "Convert selesai lokasi file nya ${i%.*}.mp3"
 	done
 
@@ -307,10 +320,10 @@ read videcon
 
 	read -p "Di Mana File Nya : " mp3dir
     for i in $mp3dir; do
-    echo -e $okegreen"Lagi Di Proses";
-    echo -ne 'Proses Convert Sedang Berjalan.... \r'
+    
+    start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i/*.wav" -vn -ab 128k -ar 44100 -y "${i%.*}.mp3" > /dev/null 2>&1
-    echo -ne "\ec"
+    stop_spinner $?
     echo "Convert selesai lokasi file nya ${i%.*}.mp3"
 	done
 
@@ -326,10 +339,10 @@ read videcon
 
 	read -p "Di Mana File Nya : " mp3dir
     for i in $mp3dir; do
-    echo -e $okegreen"Lagi Di Proses";
-    echo -ne 'Proses Convert Sedang Berjalan.... \r'
+    
+    start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i/*.ogg" -vn -ab 128k -ar 44100 -y "${i%.*}.mp3" > /dev/null 2>&1
-    echo -ne "\ec"
+    stop_spinner $?
     echo "Convert selesai lokasi file nya ${i%.*}.mp3"
 	done
 
@@ -345,10 +358,10 @@ read videcon
 
 	read -p "Di Mana File Nya : " mp3dir
     for i in $mp3dir; do
-    echo -e $okegreen"Lagi Di Proses";
-    echo -ne 'Proses Convert Sedang Berjalan.... \r'
+    
+    start_spinner 'Proses Convert Sedang Berjalan....'
     ffmpeg -i "$i/*.flac" -vn -ab 128k -ar 44100 -y "${i%.*}.mp3" > /dev/null 2>&1
-    echo -ne "\ec"
+    stop_spinner $?
     echo "Convert selesai lokasi file nya ${i%.*}.mp3"
 	done
 
@@ -378,8 +391,15 @@ read videcon
 
 
 function menu (){
-echo -e $lightgreen"$intro"
-echo -e $BlueF"       Media Converter Tools"
+echo -e okegreen"                                   ";
+echo " _|      _|    _|_|_|  _|_|_|_|_|  ";
+echo " _|_|  _|_|  _|            _|      ";
+echo " _|  _|  _|  _|            _|      ";
+echo " _|      _|  _|            _|      ";
+echo " _|      _|    _|_|_|      _|      ";
+echo "                                   ";
+echo "     Media Converter Termux        ";
+echo "          IqbalFAF "
 echo -e $white" Script   : $red"IqbalFAF""
 echo -e $white" Version  : $red"$versi""
 echo""
@@ -421,8 +441,16 @@ fi
 ####### KORE MENU #########
 
 sleep 1
-echo -e $lightgreen"$intro"
-echo -e $BlueF"       Media Converter Termux"
+clear
+echo -e okegreen"                                   ";
+echo " _|      _|    _|_|_|  _|_|_|_|_|  ";
+echo " _|_|  _|_|  _|            _|      ";
+echo " _|  _|  _|  _|            _|      ";
+echo " _|      _|  _|            _|      ";
+echo " _|      _|    _|_|_|      _|      ";
+echo "                                   ";
+echo "     Media Converter Termux        ";
+echo "          IqbalFAF "
 echo -e $white" Script   : $red"IqbalFAF""
 echo -e $white" Version  : $red"$versi""
 echo""
@@ -430,6 +458,7 @@ echo -e $lightgreen"============================================="
 echo -e $white" [$red"01"$white]$cyan Converter Video"
 echo -e $white" [$red"02"$white]$cyan Converter Mp3"
 echo -e $white" [$red"03"$white]$cyan Batch Convert Mp3" 
+echo -e $white" [$red"03"$white]$cyan UPDATE Script" 
 echo -e $white" [$red"x"$white]$cyan Keluar"
 echo -e $okegreen" ┌─["$red"IqbalFAF$okegreen]──[$red~$okegreen]─["$yellow"menu$okegreen]:"	
 echo -ne $okegreen" └─────► " ;tput sgr0
@@ -438,7 +467,7 @@ echo ""
 if test $kimochi == '1'
 	then
 	clear
-	convertervideo
+	converte rvideo
 elif test $kimochi == '2'
 	then 
 	clear
