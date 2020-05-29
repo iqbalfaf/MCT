@@ -37,9 +37,6 @@ stop_spinner $?
 start_spinner 'Install Git'
 apt install git -y > /dev/null 2>&1
 stop_spinner $?
-start_spinner 'Cloning Script MCT'
-git clone https://github.com/iqbalfaf/MCT.git > /dev/null 2>&1
-stop_spinner $?
 start_spinner 'Setting Up MCT'
 cd
 cd MCT/
